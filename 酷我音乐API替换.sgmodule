@@ -1,0 +1,10 @@
+#!name=酷我音乐API替换
+#!desc=替换Listen1 酷我接口API
+
+[URL Rewrite]
+^https?:\/\/antiserver\.kuwo\.cn\S+?rid=(\d+)\S+?(&reqId=.+) https://www.kuwo.cn/api/v1/www/music/playUrl?type=music&httpsStatus=1&mid=$1$2 header
+
+[Script]
+酷我音乐API替换 = type=http-response,script-path=https://raw.githubusercontent.com/lvjiong/myjs/main/kuwo_response.js,pattern=https://www.kuwo.cn/api,max-size=131072,requires-body=true,timeout=10,script-update-interval=0,enable=true
+[MITM]
+hostname = %APPEND% www.kuwo.cn,antiserver.kuwo.cn
