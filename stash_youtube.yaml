@@ -1,0 +1,256 @@
+proxy-providers:
+  服务提供商-1:
+    url: http://your-service-provider
+    interval: 600
+    # 服务提供商-2:
+    #   url: http://your-another-service-provider
+    #   interval: 600
+proxy-groups:
+  # 功能分组
+  - name: 选择代理
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Proxy.png
+    type: select
+    proxies:
+      - 自动选择
+      - 手动选择
+      - HK 香港
+      - TW 台湾
+      - SG 新加坡
+      - JP 日本
+      - US 美国
+      - DIRECT
+  - name: Netflix
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Netflix.png
+    type: select
+    proxies:
+      - 自动选择
+      - 手动选择
+      - HK 香港
+      - TW 台湾
+      - SG 新加坡
+      - JP 日本
+      - US 美国
+      - DIRECT
+  - name: Disney+
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Disney%2B.png
+    type: select
+    proxies:
+      - 自动选择
+      - 手动选择
+      - HK 香港
+      - TW 台湾
+      - SG 新加坡
+      - JP 日本
+      - US 美国
+      - DIRECT
+  - name: Spotify
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Spotify.png
+    type: select
+    proxies:
+      - 自动选择
+      - 手动选择
+      - HK 香港
+      - TW 台湾
+      - SG 新加坡
+      - JP 日本
+      - US 美国
+      - DIRECT
+  - name: YouTube
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/YouTube.png
+    type: select
+    proxies:
+      - 自动选择
+      - 手动选择
+      - HK 香港
+      - TW 台湾
+      - SG 新加坡
+      - JP 日本
+      - US 美国
+      - DIRECT
+  - name: Speedtest
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Speedtest.png
+    type: select
+    proxies:
+      - 自动选择
+      - 手动选择
+      - HK 香港
+      - TW 台湾
+      - SG 新加坡
+      - JP 日本
+      - US 美国
+      - DIRECT
+  - name: 默认
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Final.png
+    type: select
+    proxies:
+      - 选择代理
+      - DIRECT
+  # 基于地区分组
+  - name: HK 香港
+    filter: "澳门|🇲🇴|港|🇭🇰|HK|(?i)Hong"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    include-all: true
+  - name: TW 台湾
+    filter: "台|🇹🇼|湾|TW|(?i)Taiwan"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    include-all: true
+  - name: SG 新加坡
+    filter: "新加坡|坡|狮城|🇸🇬|SG|(?i)Singapore"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    include-all: true
+  - name: JP 日本
+    filter: "日|🇯🇵|东京|JP|(?i)Japan"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    include-all: true
+  - name: US 美国
+    filter: "美|🇺🇲|US|(?i)States|America"
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    include-all: true
+  - name: 自动选择
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Auto.png
+    interval: 120
+    lazy: true
+    tolerance: 50
+    type: url-test
+    include-all: true
+  - name: 手动选择
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Static.png
+    interval: 120
+    lazy: true
+    type: select
+    include-all: true
+rules:
+  - SCRIPT,quic,REJECT
+  # Netflix
+  - GEOSITE,netflix,Netflix
+  # Disney+
+  - GEOSITE,disney,Disney+
+  # Spotify
+  - GEOSITE,spotify,Spotify
+  # Speedtest
+  - GEOSITE,speedtest,Speedtest
+  # GitHub
+  - GEOSITE,github,选择代理
+  # Telegram
+  - IP-ASN,62014,选择代理,no-resolve
+  - IP-ASN,59930,选择代理,no-resolve
+  - IP-ASN,44907,选择代理,no-resolve
+  - IP-ASN,211157,选择代理,no-resolve
+  - PROCESS-NAME,Telegram.exe,选择代理
+  - PROCESS-NAME,Telegram,选择代理
+  - GEOSITE,telegram,选择代理
+  # YouTube
+  - GEOSITE,youtube,YouTube
+  # Google
+  - GEOSITE,google,选择代理
+  # Twitter
+  - GEOSITE,twitter,选择代理
+  - DOMAIN-SUFFIX,tapbots.com,选择代理
+  # Instagram
+  - GEOSITE,instagram,选择代理
+  # Facebook
+  - GEOSITE,facebook,选择代理
+  # Steam
+  - GEOSITE,steam@cn,DIRECT
+  - GEOSITE,steam,选择代理
+  # Apple LBS
+  - DOMAIN-SUFFIX,iphone-ld.apple.com,DIRECT
+  - DOMAIN-SUFFIX,lcdn-locator.apple.com,DIRECT
+  - DOMAIN-SUFFIX,lcdn-registration.apple.com,DIRECT
+  - DOMAIN-SUFFIX,push.apple.com,DIRECT
+  # Apple OCSP
+  - PROCESS-NAME,trustd,选择代理
+  # Microsoft
+  - GEOSITE,microsoft@cn,DIRECT
+  - GEOSITE,microsoft,选择代理
+  - GEOSITE,xbox,选择代理
+  # common proxy utils
+  - PROCESS-NAME,v2ray,DIRECT
+  - PROCESS-NAME,Surge,DIRECT
+  - PROCESS-NAME,ss-local,DIRECT
+  - PROCESS-NAME,privoxy,DIRECT
+  - PROCESS-NAME,trojan,DIRECT
+  - PROCESS-NAME,trojan-go,DIRECT
+  - PROCESS-NAME,naive,DIRECT
+  - PROCESS-NAME,CloudflareWARP,DIRECT
+  - PROCESS-NAME,Cloudflare WARP,DIRECT
+  - IP-CIDR,162.159.193.0/24,DIRECT,no-resolve
+  - PROCESS-NAME,p4pclient,DIRECT
+  - PROCESS-NAME,Thunder,DIRECT
+  - PROCESS-NAME,DownloadService,DIRECT
+  - PROCESS-NAME,qbittorrent,DIRECT
+  - PROCESS-NAME,Transmission,DIRECT
+  - PROCESS-NAME,fdm,DIRECT
+  - PROCESS-NAME,aria2c,DIRECT
+  - PROCESS-NAME,Folx,DIRECT
+  - PROCESS-NAME,NetTransport,DIRECT
+  - PROCESS-NAME,uTorrent,DIRECT
+  - PROCESS-NAME,WebTorrent,DIRECT
+  - GEOIP,LAN,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,默认
+script:
+  shortcuts:
+    quic: network == 'udp' and dst_port == 443
+dns:
+  default-nameserver:
+    - 114.114.115.115
+    - 119.28.28.28
+    - 223.6.6.6
+    - system
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+log-level: warning
+http:
+  # 强制使用 HTTP 引擎处理 TCP 连接
+  # 捕获后的连接可以使用高级功能，例如重写和脚本
+  force-http-engine:
+    - '*:80'
+    - '*:4480' # BiliBili CDN
+    - '*:9102' # BiliBili CDN
+ 
+  # 以 PKCS #12 编码的 CA 证书
+  ca: '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'
+  # 证书密码
+  ca-passphrase: 'Shadowrocket'
+  # 开启 MitM 功能的域名列表，需要确保上述 CA 证书已受系统信任
+  mitm:
+    - g.cn
+  url-rewrite:
+    - (^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 header
+    - ^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads - REJECT-200
+    - ^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) - REJECT-200
+    - ^https?:\/\/\s.youtube.com/api/stats/qoe?.*adformat= - REJECT-200
+    - ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v\d\/player\/ad_break - reject
+mode: rule
+proxies:
+  - auth: 161f0255
+    fast-open: false
+    name: HY2
+    port: 53467
+    server: 129.146.139.123
+    servername: www.bing.com
+    skip-cert-verify: true
+    sni: www.bing.com
+    type: hysteria2
