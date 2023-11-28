@@ -237,12 +237,6 @@ http:
   # 开启 MitM 功能的域名列表，需要确保上述 CA 证书已受系统信任
   mitm:
     - g.cn
-  url-rewrite:
-    - (^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 header
-    - ^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads - REJECT-200
-    - ^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) - REJECT-200
-    - ^https?:\/\/\s.youtube.com/api/stats/qoe?.*adformat= - REJECT-200
-    - ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v\d\/player\/ad_break - reject
 mode: rule
 proxies:
   - auth: 161f0255
