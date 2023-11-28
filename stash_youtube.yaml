@@ -236,7 +236,8 @@ http:
   ca-passphrase: 'K8FE0JTV'
   # 开启 MitM 功能的域名列表，需要确保上述 CA 证书已受系统信任
   mitm:
-    - "-redirector*.googlevideo.com"
+    - -redirector*.googlevideo.com
+    - *.googlevideo.com
   url-rewrite:
     - (^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
     - ^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads - REJECT-200
