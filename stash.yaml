@@ -223,18 +223,26 @@ dns:
     - https://doh.pub/dns-query
 log-level: warning
 http:
+  # 强制使用 HTTP 引擎处理 TCP 连接
+  # 捕获后的连接可以使用高级功能，例如重写和脚本
+  force-http-engine:
+    - '*:80'
+    - '*:4480' # BiliBili CDN
+    - '*:9102' # BiliBili CDN
+ 
+  # 以 PKCS #12 编码的 CA 证书
+  ca: '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'
+  # 证书密码
+  ca-passphrase: 'K8FE0JTV'
+  # 开启 MitM 功能的域名列表，需要确保上述 CA 证书已受系统信任
   mitm:
-    - "mp.weixin.qq.com"
-  script:
-    - match: ^https?:\/\/mp\.weixin\.qq\.com\/mp\/getappmsgad
-      name: weixingongzhonghaoquguanggao1
-      type: response
-      require-body: true
-      timeout: 10
-script-providers:
-  weixingongzhonghaoquguanggao1:
-    url: https://raw.githubusercontent.com/NobyDa/Script/master/QuantumultX/File/Wechat.js
-    interval: 86400
+    - g.cn
+  url-rewrite:
+    - (^https?:\/\/[\w-]+\.googlevideo\.com\/(?!dclk_video_ads).+?)&ctier=L(&.+?),ctier,(.+) $1$2$3 302
+    - ^https?:\/\/(www|s)\.youtube\.com\/api\/stats\/ads - REJECT-200
+    - ^https?:\/\/(www|s)\.youtube\.com\/(pagead|ptracking) - REJECT-200
+    - ^https?:\/\/\s.youtube.com/api/stats/qoe?.*adformat= - REJECT-200
+    - ^https?:\/\/youtubei\.googleapis\.com\/youtubei\/v\d\/player\/ad_break - reject
 mode: rule
 proxies:
   - auth: 161f0255
