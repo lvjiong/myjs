@@ -40,3 +40,8 @@ script-providers:
   YouTubequguanggao2:
     url: https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.request.beta.js
     interval: 86400
+script:
+  shortcuts: # 使用表达式编写自定义规则
+    quic: network == 'udp' and (dst_port == 443) # 可以在 rule 中引用
+rules:
+  - SCRIPT,quic,REJECT,no-track
