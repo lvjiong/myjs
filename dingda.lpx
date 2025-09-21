@@ -1,0 +1,6 @@
+#!name=叮嗒出行去广告
+[Script]
+http-response ^https:\/\/load\.dingdatech\.com\/api\/bizom\/advisory\/checkAdvisoryIsHide script-path=https://raw.githubusercontent.com/lvjiong/myjs/refs/heads/main/dingda.js,requires-body=true
+
+[MitM]
+hostname=load.dingdatech.com
