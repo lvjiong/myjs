@@ -1,0 +1,25 @@
+name: 解锁检测
+desc: |-
+    - 哔哩哔哩港澳台
+    - chatgpt iOS
+    - chatgpt web
+    - gemini
+    - youtube premium
+category: tile
+icon: https://raw.githubusercontent.com/qsoyq/shell/main/assets/icon/override.png
+
+tiles:
+    - name: MediaUnlockChecker
+      backgroundColor: "#178BD8"
+      interval: 1800
+      collapsed: false
+
+#    - name: MediaUnlockChecker
+      backgroundColor: "#178BD8"
+      interval: 1800
+      collapsed: true
+
+script-providers:
+    MediaUnlockChecker:
+        url: https://raw.githubusercontent.com/qsoyq/stash/main/script/tile/media-unlock-checker.js
+        interval: 86400
