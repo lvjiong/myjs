@@ -14,11 +14,6 @@ tiles:
       interval: 1800
       collapsed: false
 
-#    - name: MediaUnlockChecker
-#      backgroundColor: "#178BD8"
-#      interval: 1800
-#      collapsed: true
-
 script-providers:
     MediaUnlockChecker:
         url: https://raw.githubusercontent.com/qsoyq/stash/main/script/tile/media-unlock-checker.js
