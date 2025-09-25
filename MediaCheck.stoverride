@@ -6,13 +6,13 @@ desc: |-
     - gemini
     - youtube premium
 category: tile
-icon: https://raw.githubusercontent.com/qsoyq/shell/main/assets/icon/override.png
+icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Netflix.png
 
 tiles:
     - name: MediaUnlockChecker
       backgroundColor: "#178BD8"
       interval: 1800
-      collapsed: false
+      collapsed: true
 
 script-providers:
     MediaUnlockChecker:
