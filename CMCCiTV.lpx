@@ -1,37 +1,37 @@
 #!name=CMCCiTV
 #!desc=中国移动iTV 域名映射修正。解决非移动网络解析到 Cloudflare 导致不可访问问题。
-#!arguments=指定解析DNS:114.114.114.114, 自行补充映射:# 若有需要补充地址可在此填入, 映射目标地址:pixman.io.fifalive.dnsany.com
-#!argument-desc=
-指定解析DNS：默认使用 114 DNS
-自行补充映射：若发现咪咕 DNS 解析到 1.1.1.1 则表示异常，可补充至此。
-映射目标地址可自选：
-  pixman.io.ystenlive.dnsany.com
-  pixman.io.bestlive.dnsany.com
-  pixman.io.wasulive.dnsany.com
-  pixman.io.fifalive.dnsany.com
-  pixman.io.hnbblive.dnsany.com
-
+#!icon=https://raw.githubusercontent.com/luestr/IconResource/main/App_icon/120px/Network.png
+#!tag=China Mobile,iTV,Fix
+#!system=iOS,iPadOS,macOS
+#!loon_version=3.2.4(787)
+#!date=2025-12-02 12:00:00
 # 配置来源：https://pixman.io/topics/37
-# 整理作者：https://github.com/LOWERTOP
+
+[Argument]
+指定解析DNS=input,"114.114.114.114",tag=DNS指定解析服务器,desc=用于解析 *.dnsany.com 的专用 DNS（避免解析到 1.1.1.1）
+自行补充映射=input,,tag=补充映射域名,desc=如需额外域名定向到 pixman 反代，请填入域名
+映射目标地址=select,"pixman.io.fifalive.dnsany.com","pixman.io.ystenlive.dnsany.com","pixman.io.bestlive.dnsany.com","pixman.io.wasulive.dnsany.com","pixman.io.hnbblive.dnsany.com",tag=目标反代地址,desc=域名异常时将被定向到此反代
 
 [Rule]
 RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/ChinaMobile/ChinaMobile.list,DIRECT
 DOMAIN-SUFFIX,cmvideo.cn,DIRECT
 DOMAIN-SUFFIX,dnsany.com,DIRECT
 
+[General]
+
 [Host] 
 # 指定解析 DNS
-*.dnsany.com = server:{{指定解析DNS}}
+*.dnsany.com = server:{指定解析DNS}
 
 # 用户补充映射
-{{自行补充映射}} = {{映射目标地址}}
+{自行补充映射} = {映射目标地址}
 
 # 地区 来源
-hlszymgsplive.miguvideo.com = {{映射目标地址}}
+hlszymgsplive.miguvideo.com = {映射目标地址}
 
 # APTV 来源
-studentlive.migucloud.com = {{映射目标地址}}
-zqhswlive.itv.cmvideo.cn = {{映射目标地址}}
+studentlive.migucloud.com = {映射目标地址}
+zqhswlive.itv.cmvideo.cn = {映射目标地址}
 
 # PIXMAN 来源（固定）
 cache.ott.ystenlive.itv.cmvideo.cn = pixman.io.ystenlive.dnsany.com
