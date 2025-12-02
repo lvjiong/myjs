@@ -8,24 +8,24 @@
 # 配置来源：https://pixman.io/topics/37
 
 [Argument]
-指定解析DNS=input,"114.114.114.114",tag=DNS指定解析服务器,desc=用于解析 *.dnsany.com 的专用 DNS（避免解析到 1.1.1.1）
-自行补充映射=input,,tag=补充映射域名,desc=如需额外域名定向到 pixman 反代，请填入域名
-映射目标地址=select,"pixman.io.fifalive.dnsany.com","pixman.io.ystenlive.dnsany.com","pixman.io.bestlive.dnsany.com","pixman.io.wasulive.dnsany.com","pixman.io.hnbblive.dnsany.com",tag=目标反代地址,desc=域名异常时将被定向到此反代
+Custom_DNS=input,"114.114.114.114",tag=DNS指定解析服务器,desc=用于解析 *.dnsany.com 的专用 DNS（避免解析到 1.1.1.1）
+Custom_HostMap=input,,tag=补充映射域名,desc=如需额外域名定向到 pixman 反代，请填入域名
+DestHost=select,"pixman.io.fifalive.dnsany.com","pixman.io.ystenlive.dnsany.com","pixman.io.bestlive.dnsany.com","pixman.io.wasulive.dnsany.com","pixman.io.hnbblive.dnsany.com",tag=目标反代地址,desc=域名异常时将被定向到此反代
 
 [General]
 
 [Host]
 # 指定解析 DNS
-*.dnsany.com = server:{指定解析DNS}
+*.dnsany.com = server:{Custom_DNS}
 # 用户补充映射
-{自行补充映射} = {映射目标地址}
+{Custom_HostMap} = {DestHost}
 
 # 地区 来源
-hlszymgsplive.miguvideo.com = {映射目标地址}
+hlszymgsplive.miguvideo.com = {DestHost}
 
 # APTV 来源
-studentlive.migucloud.com = {映射目标地址}
-zqhswlive.itv.cmvideo.cn = {映射目标地址}
+studentlive.migucloud.com = {DestHost}
+zqhswlive.itv.cmvideo.cn = {DestHost}
 
 # PIXMAN 来源（固定）
 cache.ott.ystenlive.itv.cmvideo.cn = pixman.io.ystenlive.dnsany.com
