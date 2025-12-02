@@ -12,11 +12,6 @@
 自行补充映射=input,,tag=补充映射域名,desc=如需额外域名定向到 pixman 反代，请填入域名
 映射目标地址=select,"pixman.io.fifalive.dnsany.com","pixman.io.ystenlive.dnsany.com","pixman.io.bestlive.dnsany.com","pixman.io.wasulive.dnsany.com","pixman.io.hnbblive.dnsany.com",tag=目标反代地址,desc=域名异常时将被定向到此反代
 
-[Rule]
-RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/ChinaMobile/ChinaMobile.list,DIRECT
-DOMAIN-SUFFIX,cmvideo.cn,DIRECT
-DOMAIN-SUFFIX,dnsany.com,DIRECT
-
 [General]
 # 指定解析 DNS
 *.dnsany.com = server:{{指定解析DNS}}
@@ -37,3 +32,8 @@ cache.ott.bestlive.itv.cmvideo.cn = pixman.io.bestlive.dnsany.com
 cache.ott.wasulive.itv.cmvideo.cn = pixman.io.wasulive.dnsany.com
 cache.ott.fifalive.itv.cmvideo.cn = pixman.io.fifalive.dnsany.com
 cache.ott.hnbblive.itv.cmvideo.cn = pixman.io.hnbblive.dnsany.com
+
+[Rule]
+RULE-SET,https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/ChinaMobile/ChinaMobile.list,DIRECT
+DOMAIN-SUFFIX,cmvideo.cn,DIRECT
+DOMAIN-SUFFIX,dnsany.com,DIRECT
