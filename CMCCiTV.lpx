@@ -15,6 +15,7 @@
 [General]
 # 指定解析 DNS
 *.dnsany.com = server:{{指定解析DNS}}
+
 [Host] 
 # 用户补充映射
 {{自行补充映射}} = {{映射目标地址}}
