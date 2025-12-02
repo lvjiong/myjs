@@ -13,10 +13,10 @@
 映射目标地址=select,"pixman.io.fifalive.dnsany.com","pixman.io.ystenlive.dnsany.com","pixman.io.bestlive.dnsany.com","pixman.io.wasulive.dnsany.com","pixman.io.hnbblive.dnsany.com",tag=目标反代地址,desc=域名异常时将被定向到此反代
 
 [General]
+
+[Host]
 # 指定解析 DNS
 *.dnsany.com = server:{{指定解析DNS}}
-
-[Host] 
 # 用户补充映射
 {{自行补充映射}} = {{映射目标地址}}
 
