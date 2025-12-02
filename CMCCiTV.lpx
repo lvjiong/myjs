@@ -6,6 +6,7 @@
 #!loon_version=3.2.4(787)
 #!date=2025-12-02 12:00:00
 # 配置来源：https://pixman.io/topics/37
+# 说明，Loon暂不支持直接在hostmap中使用参数，所以提供的参数功能实际没有效果，Rule里的RULE-SET也无效，不过这些不影响本插件的功能，用到的都已经写死host了
 
 [Argument]
 Custom_DNS=input,"114.114.114.114",tag=DNS指定解析服务器,desc=用于解析 *.dnsany.com 的专用 DNS（避免解析到 1.1.1.1）
