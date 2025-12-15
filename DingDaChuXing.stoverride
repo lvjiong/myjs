@@ -1,1 +1,21 @@
-
+#!name = 叮嗒出行去广告
+#!desc =去除叮嗒出行启动广告，支付宝小程序验证有效，未验证APP
+#!author = lvjiong
+#!icon = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+name: 叮嗒出行去广告
+desc: 去除叮嗒出行启动广告，支付宝小程序验证有效，未验证APP
+http:
+  mitm:
+    - "load.dingdatech.com"
+  script:
+    - match: ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting)\?
+      name: dingdachuxing
+      type: response
+      require-body: true
+      binary-mode: true
+      timeout: 10
+	  max-size: 1048576
+script-providers:
+  dingdachuxing:
+    url: https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.response.beta.js
+    interval: 86400
