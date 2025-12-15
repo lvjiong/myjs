@@ -11,7 +11,7 @@ http:
       require-body: true
       binary-mode: true
       timeout: 10
-	  max-size: -1
+      max-size: -1
 
 script-providers:
   dingdachuxing:
