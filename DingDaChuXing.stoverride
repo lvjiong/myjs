@@ -1,6 +1,6 @@
 name: 叮嗒出行去广告
 desc: 去除叮嗒出行启动广告，支付宝小程序验证有效，未验证APP
-#icon: https://raw.githubusercontent.com/bytedance/IconPark/8dc132da4c85671ba6a5962c87aa2bdafbf158e9/source/Hardware/bike.svg
+#!icon: https://raw.githubusercontent.com/bytedance/IconPark/8dc132da4c85671ba6a5962c87aa2bdafbf158e9/source/Hardware/bike.svg
 http:
   mitm:
     - "load.dingdatech.com"
