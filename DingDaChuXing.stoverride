@@ -8,7 +8,7 @@ http:
   mitm:
     - "load.dingdatech.com"
   script:
-    - match: ^https:\/\/youtubei\.googleapis\.com\/youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting)\?
+    - match: ^https:\/\/load\.dingdatech\.com\/api\/bizom\/advisory\/checkAdvisoryIsHide
       name: dingdachuxing
       type: response
       require-body: true
@@ -17,5 +17,5 @@ http:
 	  max-size: 1048576
 script-providers:
   dingdachuxing:
-    url: https://raw.githubusercontent.com/Maasea/sgmodule/master/Script/Youtube/dist/youtube.response.beta.js
+    url: https://raw.githubusercontent.com/lvjiong/myjs/refs/heads/main/dingda.js
     interval: 86400
