@@ -11,7 +11,8 @@ http:
       require-body: true
       binary-mode: true
       timeout: 10
-	  max-size: 1048576
+	  max-size: -1
+
 script-providers:
   dingdachuxing:
     url: https://raw.githubusercontent.com/lvjiong/myjs/refs/heads/main/dingda.js
