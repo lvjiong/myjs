@@ -1,0 +1,20 @@
+name: 百度网盘VIP
+desc: 百度网盘倍速播放
+icon: https://raw.githubusercontent.com/deezertidal/private/main/icons/baiducloud.png
+category: APP
+http:
+  mitm:
+    - "pan.baidu.com"
+  script:
+    - match: ^https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user
+      name: baiduyun
+      type: response
+      require-body: true
+      binary-mode: true
+      timeout: 10
+      max-size: -1
+
+script-providers:
+  baiduyun:
+    url: https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js
+    interval: 86400
